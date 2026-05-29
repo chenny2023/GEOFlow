@@ -231,9 +231,19 @@ docker compose --env-file .env.prod -f docker-compose.prod.yml up -d app web que
 - **默认管理员**：生产 `init` 服务会在迁移后执行一次 `db:seed`，只在目标用户名不存在时写入默认后台账号；重复执行不会覆盖已有账号或密码
 - 详细说明见 `docs/deployment/DEPLOYMENT.md`
 
+### macOS 一键本机部署
+
+在 Mac 终端进入项目目录后执行（自动安装 Homebrew 依赖并启动 Web/队列/调度）：
+
+```bash
+bash scripts/mac-deploy.sh
+```
+
+详见 [docs/deployment/MAC.md](docs/deployment/MAC.md)。默认访问 http://127.0.0.1:8888/geo_admin/login 。
+
 ### 方式二：本地 PHP 服务器
 
-**前置要求：** PHP **8.2+**，启用 `pdo_pgsql`、`redis` 等 Laravel 常用扩展；本机已安装 **PostgreSQL** 与 **Redis**；已安装 **Composer 2.x**。
+**前置要求：** PHP **8.4+**（当前 `composer.lock` 需 8.4），启用 `pdo_pgsql`、`redis` 等 Laravel 常用扩展；本机已安装 **PostgreSQL** 与 **Redis**；已安装 **Composer 2.x**。
 
 ```bash
 # 1. 克隆仓库
