@@ -38,7 +38,7 @@ else
   echo "  [SKIP] 未安装 psql，跳过数据库检查"
 fi
 
-for port in 8080 18080; do
+for port in 8888 8080 18080; do
   if curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 2 "http://127.0.0.1:${port}/" 2>/dev/null | grep -q 200; then
     ok "HTTP ${port} 返回 200 — http://127.0.0.1:${port}/"
   else
@@ -48,5 +48,6 @@ done
 
 echo ""
 echo "常见访问地址:"
-echo "  本机 PHP:  http://127.0.0.1:8080/geo_admin/login"
+echo "  本机 PHP:  http://127.0.0.1:8888/geo_admin/login (默认)"
+echo "  备用端口:  http://127.0.0.1:8080/geo_admin/login"
 echo "  Docker:    http://127.0.0.1:18080/geo_admin/login"

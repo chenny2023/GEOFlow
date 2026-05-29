@@ -47,7 +47,7 @@ if ! "$PHP_BIN" artisan tinker --execute="echo \\App\\Models\\Admin::query()->ex
   "$PHP_BIN" artisan db:seed --force
 fi
 
-PORT="${APP_SERVE_PORT:-8080}"
+PORT="${APP_SERVE_PORT:-8888}"
 HOST="${APP_SERVE_HOST:-0.0.0.0}"
 
 echo ""
@@ -56,6 +56,7 @@ echo " GEOFlow 本机开发服务"
 echo "=========================================="
 echo " 前台: http://127.0.0.1:${PORT}/"
 echo " 后台: http://127.0.0.1:${PORT}/geo_admin/login"
+echo " (Cursor 云端请在 Ports 面板打开端口 ${PORT} 的转发链接)"
 echo " 账号: admin / password"
 echo ""
 echo " Docker 部署请用端口 18080: http://localhost:18080"
